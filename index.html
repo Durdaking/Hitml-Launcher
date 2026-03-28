@@ -1,37 +1,60 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Durdakings html launcher</title>
-  </head>
- <body>
- <!--
-This is the header
--->
-   <h1 style=font-family:verdana>This is a Html Launcher </h1>
-   
-   <p> This is going to be a Html File Game Site that will  be usable with <strong>web proxys</strong>.</p>
-<!--
-This is the aboutblank butten/opener
---> 
-<button onclick="openBlank()">
-  Open Game in about:blank
-</button>
+<head>
+  <title>Launcher</title>
+
+  <style>
+    body {
+      font-family: Verdana;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 150px);
+      gap: 15px;
+    }
+
+    .game-box {
+      width: 150px;
+      height: 150px;
+      background-color: #2c2c2c;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .game-box:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Game Launcher</h1>
+
+<div class="grid">
+  <div class="game-box" onclick="openGame('test.html')">Test 1</div>
+  <div class="game-box" onclick="openGame('test.html')">Test 2</div>
+  <div class="game-box" onclick="openGame('test.html')">Test 3</div>
+  <div class="game-box" onclick="openGame('test.html')">Test 4</div>
+  <div class="game-box" onclick="openGame('test.html')">Test 5</div>
+  <div class="game-box" onclick="openGame('test.html')">Test 6</div>
+
+</div>
+
 <script>
-function openBlank() {
+function openGame(path) {
   let newTab = window.open('about:blank', '_blank');
   newTab.document.write(`
-    <iframe src="game.html" style="width:100%; height:100%; border:none;"></iframe>
+    <iframe src="${path}" style="width:100%; height:100%; border:none;"></iframe>
   `);
 }
 </script>
- <!--
-This is the Launch game butten
--->
-    <button onclick="document.getElementById('veiwer').src='asciispace.html'">Launch asciispace</button>
-<!--
-This is the iframe veiwer for in the tab
--->
-   <iframe id="veiwer" style="width=:100%; hight=:75%; border:none;"></iframe>
 
- </body>
+</body>
 </html>
