@@ -1,14 +1,11 @@
 <!doctype html>
 <html>
 <head>
- 
- <title>Animation Launcher</title>
- <link rel="icon" type="image/png" href="assets/icon.png">
-
- <style>
+  <title>Animation Launcher</title>
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <style>
     body {
       font-family: 'Segoe UI', Verdana, sans-serif;
-      /* Smooth dark gradient background */
       background: radial-gradient(circle, #2c3e50, #000000);
       background-attachment: fixed;
       color: white;
@@ -17,8 +14,6 @@
       flex-direction: column;
       align-items: center;
     }
-
-    /* body { background-image: url('mouse.jpg'); background-size: cover; } */
 
     h1 {
       margin-bottom: 30px;
@@ -39,7 +34,7 @@
       height: 150px;
       background-color: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(5px);
-      color: black;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -59,58 +54,13 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
       border-color: #3498db;
     }
-  </style>
-</head>
-
-<body>
-<h1>Launcher</h1>
-<div class="grid">
-  <div class="launcher" onclick="openLauncher('index.html')">Main Screen</div>
-   <div class="launcher" onclick="openLauncher('games.html')">Game Launcher</div>
-  </div>
-
-
-<script>
-function openLauncher(path) {
-  window.location.href = path;
-}
-</script>
-</body>
-  <style>
-    body {
-      font-family: 'Segoe UI', Verdana, sans-serif;
-      /* Smooth dark gradient background */
-      background: radial-gradient(circle, #2c3e50, #000000);
-      background-attachment: fixed;
-      color: white;
-      margin: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* body { background-image: url('mouse.jpg'); background-size: cover; } */
-
-    h1 {
-      margin-bottom: 30px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 150px);
-      gap: 20px;
-      justify-content: center;
-      width: 100%;
-      max-width: 1000px;
-    }
 
     .game-box {
       width: 150px;
       height: 150px;
       background-color: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(5px);
-      color: black;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -239,8 +189,14 @@ function openLauncher(path) {
       background-color: #c0392b;
     }
   </style>
+</head>
 
 <body>
+<h1>Launcher</h1>
+<div class="grid">
+  <div class="launcher" onclick="openLauncher('index.html')">Main Screen</div>
+  <div class="launcher" onclick="openLauncher('games.html')">Game Launcher</div>
+</div>
 
 <h1>Animation Launcher</h1>
 
@@ -266,6 +222,10 @@ function openLauncher(path) {
 </div>
 
 <script>
+function openLauncher(path) {
+  window.location.href = path;
+}
+
 function openGame(path) {
   const useIframe = document.getElementById('mode-toggle').checked;
   if (useIframe) {

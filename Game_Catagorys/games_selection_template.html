@@ -1,10 +1,9 @@
 <!doctype html>
 <html>
 <head>
- 
- <title>Game Launcher</title>
- <link rel="icon" type="image/png" href="assets/icon.png">
- <style>
+  <title>Game Launcher</title>
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <style>
     body {
       font-family: 'Segoe UI', Verdana, sans-serif;
       background: radial-gradient(circle, #2c3e50, #000000);
@@ -35,7 +34,7 @@
       height: 150px;
       background-color: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(5px);
-      color: black;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -55,54 +54,13 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
       border-color: #3498db;
     }
-  </style>
-</head>
-
-<body>
-<h1>Launchers</h1>
-<div class="grid">
-    <div class="launcher" onclick="openLauncher('../games.html')">Back to main game selection</div>
-    <div class="launcher" onclick="openLauncher('../index.html')">Back to main screen</div>
-</div>
-
-<script>
-function openLauncher(path) {
-  window.location.href = path;
-}
-</script>
-</body>
-  <style>
-    body {
-      font-family: 'Segoe UI', Verdana, sans-serif;
-      background: radial-gradient(circle, #2c3e50, #000000);
-      background-attachment: fixed;
-      color: white;
-      margin: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    h1 {
-      margin-bottom: 30px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 150px);
-      gap: 20px;
-      justify-content: center;
-      width: 100%;
-      max-width: 1000px;
-    }
 
     .game-box {
       width: 150px;
       height: 150px;
       background-color: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(5px);
-      color: black;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -231,8 +189,14 @@ function openLauncher(path) {
       background-color: #c0392b;
     }
   </style>
+</head>
 
 <body>
+<h1>Launchers</h1>
+<div class="grid">
+    <div class="launcher" onclick="openLauncher('../games.html')">Back to main game selection</div>
+    <div class="launcher" onclick="openLauncher('../index.html')">Back to main screen</div>
+</div>
 
 <h1>Game Launcher</h1>
 
@@ -258,6 +222,10 @@ function openLauncher(path) {
 </div>
 
 <script>
+function openLauncher(path) {
+  window.location.href = path;
+}
+
 function openGame(path) {
   const useIframe = document.getElementById('mode-toggle').checked;
   if (useIframe) {
