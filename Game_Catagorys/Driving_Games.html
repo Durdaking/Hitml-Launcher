@@ -14,12 +14,7 @@
       flex-direction: column;
       align-items: center;
     }
-
-    h1 {
-      margin-bottom: 30px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-
+    h1 { margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, 150px);
@@ -28,174 +23,95 @@
       width: 100%;
       max-width: 1000px;
     }
-
     .launcher {
-      width: 150px;
-      height: 150px;
-      background-color: rgba(255, 255, 255, 0.1);
+      width: 150px; height: 150px;
+      background-color: rgba(255,255,255,0.1);
       backdrop-filter: blur(5px);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 15px;
-      border: 3px solid rgba(255, 255, 255, 0.2);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: bold;
-      text-align: center;
-      padding: 10px;
-      box-sizing: border-box;
+      color: white; display: flex; align-items: center; justify-content: center;
+      border-radius: 15px; border: 3px solid rgba(255,255,255,0.2);
+      cursor: pointer; transition: all 0.3s ease;
+      font-weight: bold; text-align: center; padding: 10px; box-sizing: border-box;
     }
-
     .launcher:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-      border-color: #3498db;
+      background-color: rgba(255,255,255,0.2); transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-color: #3498db;
     }
-
     .game-box {
-      width: 150px;
-      height: 150px;
-      background-color: rgba(255, 255, 255, 0.1);
+      width: 150px; height: 150px;
+      background-color: rgba(255,255,255,0.1);
       backdrop-filter: blur(5px);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 15px;
-      border: 3px solid rgba(255, 255, 255, 0.2);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: bold;
-      text-align: center;
-      padding: 10px;
-      box-sizing: border-box;
+      color: white; display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-end;
+      border-radius: 15px; border: 3px solid rgba(255,255,255,0.2);
+      cursor: pointer; transition: all 0.3s ease;
+      font-weight: bold; text-align: center; padding: 10px; box-sizing: border-box;
+      overflow: hidden; position: relative;
     }
-
     .game-box:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-      border-color: #3498db;
+      background-color: rgba(255,255,255,0.2); transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-color: #3498db;
     }
-
+    .game-box .cover-img {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; border-radius: 12px; opacity: 0.6; transition: opacity 0.3s ease;
+    }
+    .game-box:hover .cover-img { opacity: 0.8; }
+    .game-box .label {
+      position: relative; z-index: 1;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.9); font-size: 13px;
+    }
     .toggle-bar {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 24px;
-      background: rgba(255,255,255,0.08);
-      border: 2px solid rgba(255,255,255,0.15);
-      border-radius: 30px;
-      padding: 8px 20px;
+      display: flex; align-items: center; gap: 12px; margin-bottom: 24px;
+      background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.15);
+      border-radius: 30px; padding: 8px 20px;
     }
-
-    .toggle-bar span {
-      font-size: 14px;
-      color: rgba(255,255,255,0.85);
-    }
-
-    .toggle-switch {
-      position: relative;
-      width: 52px;
-      height: 26px;
-      cursor: pointer;
-    }
-
-    .toggle-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
+    .toggle-bar span { font-size: 14px; color: rgba(255,255,255,0.85); }
+    .toggle-switch { position: relative; width: 52px; height: 26px; cursor: pointer; }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
     .slider {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: #555;
-      border-radius: 26px;
-      transition: 0.3s;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #555; border-radius: 26px; transition: 0.3s;
     }
-
     .slider:before {
-      content: "";
-      position: absolute;
-      height: 20px;
-      width: 20px;
-      left: 3px;
-      bottom: 3px;
-      background-color: white;
-      border-radius: 50%;
-      transition: 0.3s;
+      content: ""; position: absolute; height: 20px; width: 20px;
+      left: 3px; bottom: 3px; background-color: white; border-radius: 50%; transition: 0.3s;
     }
-
-    input:checked + .slider {
-      background-color: #3498db;
+    input:checked + .slider { background-color: #3498db; }
+    input:checked + .slider:before { transform: translateX(26px); }
+    .search-bar-wrapper { width: 100%; max-width: 1000px; margin-bottom: 24px; }
+    .search-bar-wrapper input {
+      width: 100%; padding: 12px 20px; border-radius: 30px;
+      border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08);
+      color: white; font-size: 15px; font-family: 'Segoe UI', Verdana, sans-serif;
+      box-sizing: border-box; outline: none; transition: border-color 0.2s ease;
     }
-
-    input:checked + .slider:before {
-      transform: translateX(26px);
-    }
-
+    .search-bar-wrapper input::placeholder { color: rgba(255,255,255,0.45); }
+    .search-bar-wrapper input:focus { border-color: #3498db; }
+    .no-results { color: rgba(255,255,255,0.5); font-size: 15px; margin-top: 10px; display: none; }
     #iframe-container {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 30px;
-      width: 100%;
-      max-width: 1000px;
+      display: none; flex-direction: column; align-items: center;
+      margin-top: 30px; width: 100%; max-width: 1000px;
     }
-
     #game-iframe {
-      width: 100%;
-      height: 600px;
-      border: 3px solid rgba(255,255,255,0.2);
-      border-radius: 12px;
-      background: #000;
+      width: 100%; height: 600px; border: 3px solid rgba(255,255,255,0.2);
+      border-radius: 12px; background: #000;
     }
-
-    .iframe-controls {
-      display: flex;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
+    .iframe-controls { display: flex; gap: 12px; margin-top: 12px; }
     .iframe-btn {
-      padding: 9px 22px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 14px;
-      transition: all 0.2s ease;
+      padding: 9px 22px; border: none; border-radius: 8px;
+      cursor: pointer; font-weight: bold; font-size: 14px; transition: all 0.2s ease;
     }
-
-    .btn-fullscreen {
-      background-color: #3498db;
-      color: white;
-    }
-
-    .btn-fullscreen:hover {
-      background-color: #2980b9;
-    }
-
-    .btn-close {
-      background-color: #e74c3c;
-      color: white;
-    }
-
-    .btn-close:hover {
-      background-color: #c0392b;
-    }
+    .btn-fullscreen { background-color: #3498db; color: white; }
+    .btn-fullscreen:hover { background-color: #2980b9; }
+    .btn-close { background-color: #e74c3c; color: white; }
+    .btn-close:hover { background-color: #c0392b; }
   </style>
 </head>
-
 <body>
 <h1>Launchers</h1>
 <div class="grid">
-    <div class="launcher" onclick="openLauncher('../games.html')">Back to main game selection</div>
-    <div class="launcher" onclick="openLauncher('../index.html')">Back to main screen</div>
+  <div class="launcher" onclick="openLauncher('../games.html')">Back to main game selection</div>
+  <div class="launcher" onclick="openLauncher('../index.html')">Back to main screen</div>
 </div>
 
 <h1>Game Launcher</h1>
@@ -209,31 +125,106 @@
   <span>iFrame</span>
 </div>
 
-<div class="grid">
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/carkingarena.html')">carkingarena</div> 
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/crazycrashlanding.html')">crazy crash landing</div> 
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/demolitionderbycrashracing.html')">demolition derby crash racing</div> 
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/driftboss.html')">driftboss</div> 
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/drivemad.html')">drivemad</div> 
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/earntodie.html')">earntodie</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/earntodie2.html')">earntodie2</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/eggycar.html')">eggycar</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/escaperoad.html')">escaperoad</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/highwaytraffic.html')">highwaytraffic</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/hoverracedrive.html')">hoverracedrive</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/kartbros.html')">kartbros</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/madalinstuntcars2.html')">madalinstuntcars2</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/monstertracks.html')">monstertracks</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/motox3m3.html')">motox3m3</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/parkingfury.html')">parkingfury</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/parkingfury2.html')">parkingfury2</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/parkingfury3.html')">parkingfury3</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/polytrack.html')">polytrack</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/rocketsoccerderby.html')">rocket soccer derby</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/slowroads.html')">slowroads</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/superbikethechampion.html')">super bike the champion</div>
-  <div class="game-box" onclick="openGame('../Games/Driving_Games/superstarcar.html')">superstarcar</div>
+<div class="search-bar-wrapper">
+  <input type="text" id="game-search" placeholder="Search games..." oninput="filterGames()">
 </div>
+
+<div class="grid" id="game-grid">
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/carkingarena.html')" data-name="carkingarena">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">carkingarena</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/crazycrashlanding.html')" data-name="crazy crash landing">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">crazy crash landing</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/demolitionderbycrashracing.html')" data-name="demolition derby crash racing">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">demolition derby crash racing</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/driftboss.html')" data-name="driftboss">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">driftboss</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/drivemad.html')" data-name="drivemad">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">drivemad</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/earntodie.html')" data-name="earntodie">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">earntodie</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/earntodie2.html')" data-name="earntodie2">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">earntodie2</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/eggycar.html')" data-name="eggycar">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">eggycar</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/escaperoad.html')" data-name="escaperoad">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">escaperoad</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/highwaytraffic.html')" data-name="highwaytraffic">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">highwaytraffic</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/hoverracedrive.html')" data-name="hoverracedrive">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">hoverracedrive</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/kartbros.html')" data-name="kartbros">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">kartbros</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/madalinstuntcars2.html')" data-name="madalinstuntcars2">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">madalinstuntcars2</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/monstertracks.html')" data-name="monstertracks">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">monstertracks</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/motox3m3.html')" data-name="motox3m3">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">motox3m3</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/parkingfury.html')" data-name="parkingfury">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">parkingfury</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/parkingfury2.html')" data-name="parkingfury2">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">parkingfury2</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/parkingfury3.html')" data-name="parkingfury3">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">parkingfury3</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/polytrack.html')" data-name="polytrack">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">polytrack</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/rocketsoccerderby.html')" data-name="rocket soccer derby">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">rocket soccer derby</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/slowroads.html')" data-name="slowroads">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">slowroads</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/superbikethechampion.html')" data-name="super bike the champion">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">super bike the champion</span>
+  </div>
+  <div class="game-box" onclick="openGame('../Games/Driving_Games/superstarcar.html')" data-name="superstarcar">
+    <img class="cover-img" src="../assets/gamelauncher-covers/test.png" onerror="this.style.display='none'">
+    <span class="label">superstarcar</span>
+  </div>
+</div>
+
+<p class="no-results" id="no-results">No games match your search.</p>
 
 <div id="iframe-container">
   <iframe id="game-iframe" src="" allowfullscreen></iframe>
@@ -244,10 +235,7 @@
 </div>
 
 <script>
-function openLauncher(path) {
-  window.location.href = path;
-}
-
+function openLauncher(path) { window.location.href = path; }
 function openGame(path) {
   const useIframe = document.getElementById('mode-toggle').checked;
   if (useIframe) {
@@ -256,23 +244,30 @@ function openGame(path) {
     iframe.src = path;
     container.style.display = 'flex';
     container.scrollIntoView({ behavior: 'smooth' });
-  } else {
-    window.open(path, '_blank');
-  }
+  } else { window.open(path, '_blank'); }
 }
-
 function fullscreenIframe() {
   const iframe = document.getElementById('game-iframe');
   if (iframe.requestFullscreen) iframe.requestFullscreen();
   else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
   else if (iframe.mozRequestFullScreen) iframe.mozRequestFullScreen();
 }
-
 function closeIframe() {
   const container = document.getElementById('iframe-container');
   const iframe = document.getElementById('game-iframe');
   iframe.src = '';
   container.style.display = 'none';
+}
+function filterGames() {
+  const query = document.getElementById('game-search').value.toLowerCase().trim();
+  const boxes = document.querySelectorAll('#game-grid .game-box');
+  let visible = 0;
+  boxes.forEach(function(box) {
+    const name = box.getAttribute('data-name').toLowerCase();
+    if (name.includes(query)) { box.style.display = 'flex'; visible++; }
+    else { box.style.display = 'none'; }
+  });
+  document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
 }
 </script>
 </body>
